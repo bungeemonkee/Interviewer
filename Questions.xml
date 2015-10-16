@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<categories>
+  <category name="Design">
+    <question>
+      <text>
+        Design instagram. Features: Users have an account and can post pictures to it from their phone.
+        Users can friend other users. Users can view their photos or their friends photos and comment on their friend’s photos.
+      </text>
+      <answer>
+        The answer should show consideration of at least several the following factors: seperation of concenrs,
+        scalability (caching, load-balancing, cloud services, CDNs, etc.), database design (don't care what database but there needs to be one),
+        use of some consistent framework (such as MVC or an API-based system), basic UI design.
+      </answer>
+    </question>
+    <question>
+      <text>
+        Design an app where users can play chess against each other online or using an app. (8x8 grid)
+      </text>
+      <answer>
+        The answer should show consideration of at least several the following factors: seperation of concenrs,
+        scalability (caching, load-balancing, cloud services, CDNs, etc.), database design (don't care what database but there needs to be one)
+        use of some consistent framework (such as MVC or an API-based system), basic UI design.
+      </answer>
+    </question>
+    <question>
+      <text>
+        Design an internal chat system for your client (a large company) that allows communication across several devices (desktops, mobile phones, online).
+      </text>
+      <answer>
+        The answer should show consideration of at least several the following factors: seperation of concenrs,
+        scalability (caching, load-balancing, cloud services, CDNs, etc.), database design (don't care what database but there needs to be one),use of some consistent framework (such as MVC or an API-based system), basic UI design.
+      </answer>
+    </question>
+  </category>
+  <category name="DSA">
+    <question>
+      <text>
+        You need to determine errors in a stream of unordered numbers (unsigned 64 bit integers).
+        You don't know how many items will be in the stream.
+        You do know that each number in the stream should have a pair.
+        Pairs may repeat more than once and may not necessarily be adjacent, ie. there may be other numerts or com-plete pairs between any given number and its pair.
+        You want to find any numbers whose pairs did not appear, ie. any number that appeared an odd number of times.
+      </text>
+      <hint>
+        Set
+      </hint>
+      <answer>
+        Store numbers as they are recieved in a set (impleented using some form of hash table).
+        Remove the numbers when their pair is received.
+        Any numbers in the set when the stream completes represent errors in the stream.
+      </answer>
+    </question>
+    <question>
+      <text>
+        How can you find the middle item in a singly-linked list using at most one iteration through the list.
+        You do not know the number of items ahead of time.
+      </text>
+      <hint>
+        Two pointers
+      </hint>
+      <answer>
+        Keep two pointers. Increment the first pointer to loop through the list to the end.
+        Increment the second pointer with every other increment of the first pointer.
+        When the first pointer is at the end the second pointer is at the middle.
+      </answer>
+    </question>
+    <question>
+      <text>
+        Describe a data structure that can efficiently keep track of a set of strings wihtout using any form of hash.
+      </text>
+      <hint>
+        Trees
+      </hint>
+      <answer>
+        Create a tree. The root node represents the empty string.
+        Each child node represents the next character in a string.
+        To add a string simply go down the tree finding the node for the next letter, adding it if it doesn't exist.
+        To determine if a string is in the tree use each caracater as the next node in the trea to search.
+        If the node for the last character exists the string is in the tree, if you have to stop short the string is not in the tree.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What does it mean to rotate a binary tree? Describe the process. Why would you do this?
+      </text>
+      <answer>
+        Change the structure of a tree such that the order of the elements is still valid but a node is effectively moved up or down the tree.
+        Process (simplified): A node is moved up and its parent becomes one of its children. If there weas a child in that spot it is re-inserted into the new subtree.
+        You would to it to keep a tree 'balaanced' - ie decrease the maximum height of the tree to re-optimize binary searches.
+      </answer>
+    </question>
+  </category>
+  <category name="Logic">
+    <question>
+      <text>
+        In a world were each person tells either only lies or only the truth a man is accused of a crime.
+        To defend himself he says only "The person who committed the crime always lies."
+        Did he do it?
+      </text>
+      <answer>
+        No.
+        If he is lying then the crime was committed by an honest person - which he is not.
+        If he is telling the truth then the crime was commited by someone who lies - which he is not.
+      </answer>
+    </question>
+    <question>
+      <text>
+        Imagine there are 3 coins on the table: gold, silver, and copper.
+        If you make a truthful statement, you will get one coin.
+        If you make a false statement, you will get nothing.
+        What sentence can guarantee you getting the gold coin?
+      </text>
+      <answer>
+        "You will give me neither the copper nor the silver coin."
+        If it is true, then I have to get the gold coin.
+        If it is a lie, then the negation must be true, so "you give me either copper or silver coin", which would break the given conditions that you get no coin when lying.
+        So the first sentence must be true.
+      </answer>
+    </question>
+    <question>
+      <text>
+        You have nine coins of the same size, shape and color.
+        But one is a slightly denser metal and weighs more.
+        You also have a scale that is on the verge of breaking.
+        Using only two weighs determine which coin is the heavier one.
+      </text>
+      <hint>
+        Think: Trinary, not binary.
+      </hint>
+      <answer>
+        Weight 3 vs. 3.
+        If one side is haver weight two of those coins, otherwise weight two remaining coins.
+        If one coin is heavier then it is hte heavier coin, otherwise the coin not weighed the second time must be heavier.
+      </answer>
+    </question>
+  </category>
+  <category name="JS">
+    <question>
+      <text>
+        What does "'use strict';" at the top of a javascript file do?
+      </text>
+      <hint>
+        What could be made more strict?
+      </hint>
+      <answer>
+        Enables strict parsing and runtime mode: mistakes become errors.
+        Need to use "var" to declare all variables.
+        Assignmnets which would silently fail throw exceptions (try assigning a numer to the "NaN" value or to a get-only property).
+        Attempts to delete undeletable properties ("prototype") throw exceptions.
+        Forces unique properties in an object literal: var o = { p:1, p:2 }.
+        Prevents duplicate function argument names.
+        Prevents octal syntax explititly (because it was never part of ECMA).
+        Prevents "with" syntax.
+        Eval does not introduce new variables into the calling scope (it has a new scope).
+        Prevents deleting variables (only properties on objects).
+        Prevents assigning to eval or arguments (which was possible because they are not true keywords).
+        Reserves some future keywords: implements, interface, let, package, private, protected, public, static, and yield.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What is the "prototype" property on every javascript object?
+      </text>
+      <hint>
+        Why is javascript called a "prototypal" language?
+      </hint>
+      <answer>
+        The prototypes are the inheritance mechanism.
+        If some property is not foudn on an object its prototype property is searched.
+        If it is not foudn there the prototype's prototype is searched and so on.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What happens when you call "document.write()"?
+      </text>
+      <hint>
+        Before the document is fully loaded? Afer?
+      </hint>
+      <answer>
+        When the document is being read and parsed by the browser, if there's a script element that calls document.write, the output of document.write is inserted into the document at that point.
+        Later, though, once the document is fully loaded, if you use document.write, it implicitly performs a document.open, which wipes out the page and starts writing a new one from scratch.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What is a closure?
+      </text>
+      <hint>
+        What gets closed?
+      </hint>
+      <answer>
+        A function that references values from an outer scope.
+        This creates a reference to that scope within that function body,
+        effectively enclosing the scope and function into a single implicit object stored by the runtime.
+      </answer>
+    </question>
+  </category>
+  <category name="CSS">
+    <question>
+      <text>
+        To what are 'position:relative', 'position:absolute', and 'position:fixed' relative?
+      </text>
+      <answer>
+        Absolute: Closest positioned ancestor's top left.
+        Relative: Offset from normal flow layout position.
+        Fixed: Viewport, ie: browser window (not document).
+      </answer>
+    </question>
+    <question>
+      <text>
+        What are psudoclasses? Provide examples.
+      </text>
+      <hint>
+        hovering over a link
+      </hint>
+      <answer>
+        Psudeoclasses idenity an element by some characteristic.
+        Ex. :link :visited :hover :first-child
+      </answer>
+    </question>
+    <question>
+      <text>
+        How would you select elements that are the direct children of an element with id 'myelement' (but not thier ancestors)?
+        What if you only want to select to first direct child?
+      </text>
+      <answer>
+        Use '#myelement > *' for all the direct children.
+        Use the selector '#myelement > :first-child' to select only the first direct child.
+      </answer>
+    </question>
+  </category>
+  <category name="C#">
+    <question>
+      <text>
+        What problem(s) can static members of generic types cause?
+      </text>
+      <hint>
+        Think about what static members do on regular types first.
+      </hint>
+      <answer>
+        Every version of the class used with a different set of type parameters gets a separate copy of the static member.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What does P-Invoke mean?
+      </text>
+      <hint>
+        P: "Platform"
+      </hint>
+      <answer>
+        "Platform Invoke": Call unmanaged code from managed code.
+        Ie. call C/C++ code from C#.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What are values types and reference types? What is the difference?
+      </text>
+      <hint>
+        int vs string
+      </hint>
+      <answer>
+        Value types are stored in memory directly, reference types are stored as pointers to locations in memory where the actual value exists.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What are the differences between structs and classes?
+      </text>
+      <hint>
+        int vs string
+      </hint>
+      <answer>
+        Structs are value types (cannot be null), classes are reference types.
+      </answer>
+    </question>
+    <question>
+      <text>
+        Why are strings unlike other reference types?
+      </text>
+      <hint>
+        const keyword
+      </hint>
+      <answer>
+        Strings are immutable reference types that can have constant values embedded in code.
+      </answer>
+    </question>
+    <question>
+      <text>
+        Describe the 'is' and 'as' operators and why they are similar and diffrerent.
+      </text>
+      <hint>
+        Exception vs null
+      </hint>
+      <answer>
+        They are both used when casting.
+        'is' is used to check if an instance is of a given class.
+        'as' is conditional casting: it will cast an instance to a type if that isntance can be cast to that type, otherwise it will return null.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What is managed code? What is unmanaged code?
+      </text>
+      <hint>
+        C# vs C/C++
+      </hint>
+      <answer>
+        Managed code is run through an interpreter (runtime) such as the .Net or Java runtime.
+        Unmanaged code runs directly on the host.
+        Managed code benefits from the interpreter tracking memory use and cleanup (garbage collection).
+        Unmanaged code does not have this. (Unmanaged code can implement systems such as reference counting but it is a lot of work.)
+      </answer>
+    </question>
+  </category>
+  <category name="Mongo">
+    <question>
+      <text>
+        Describe basic deisgn principles for proper Mongo schema design.
+      </text>
+      <answer>
+        Denormalize the data as much as possible to avoid querying for multipel documents.
+      </answer>
+    </question>
+    <question>
+      <text>
+        How do you rollback a transaction in Mongo?
+      </text>
+      <answer>
+        Trick question, you can't because there are no formal transactions.
+      </answer>
+    </question>
+    <question>
+      <text>
+        Describe sharding.
+      </text>
+      <answer>
+        Splitting the collection across multiple servers where no one server has the entire collection.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What is ACID? What does this mean for Mongo?
+      </text>
+      <answer>
+        Atomicity, Consistency, Isolation, Durability.
+        Writes or updates withint each collection will either be completed in their entirety or not completed at all.
+        There are no locking or transaction mechanisms that cross collection boundaries but each write/update to a collection is an implict trnasaction.
+      </answer>
+    </question>
+  </category>
+  <category name="SQL">
+    <question>
+      <text>
+        You need to delete several million rows from a table with several billion.
+        You know you have the where clause right (it’s simple like Status = 3).
+        The application using this database mmust remain active 24/7 including during the delete.
+        Scheduled maintinence downtime is not an option.
+        What do you do/think of/worry about before running this query?
+      </text>
+      <hint>
+        Locking
+      </hint>
+      <answer>
+        Batch the delete into groups.
+        Worry about table locking.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What is a materialized/indexed view?
+        Why are they special/different?
+      </text>
+      <hint>
+        What is a normal view?
+      </hint>
+      <answer>
+        Indexed views have an index on them so the data is persisted to disk - normal views to not persist data.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What is a temp table?
+        How do you make one?
+        What is the scope of a temp table?
+        What is a global temp table?
+      </text>
+      <answer>
+        Temp tables are used to store intermediary result sets rather than persist data. They are only visible to the current connection.
+        Create them by using normal table creation mechanisms (select into or create table) but prefix the table name with '#'.
+        They are scoped to the current connection and are automatically dropped when the connection is closed.
+        Global temp tables are visible to all connections and are not dropped when any connection ends.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What is schema/database normalization?
+      </text>
+      <answer>
+        Designing the table structure so as to reduce redundant data.
+        Generally redundant data should be extracted into seperate tables where it can be stored a unique values and joined on other data.
+      </answer>
+    </question>
+    <question>
+      <text>
+        What is ACID? What does this mean for SQL server?
+      </text>
+      <answer>
+        Atomicity, Consistency, Isolation, Durability.
+        Transactions will be either comleted in their entirety or not completed at all.
+        The database will remain in a consistent state regardless of whether the transaction succeeds or fails.
+      </answer>
+    </question>
+  </category>
+</categories>
