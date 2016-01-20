@@ -45,7 +45,7 @@
         Set
       </hint>
       <answer>
-        Store numbers as they are recieved in a set (impleented using some form of hash table).
+        Store numbers as they are recieved in a set (implemented using some form of hash table).
         Remove the numbers when their pair is received.
         Any numbers in the set when the stream completes represent errors in the stream.
       </answer>
@@ -86,7 +86,7 @@
       <answer>
         Change the structure of a tree such that the order of the elements is still valid but a node is effectively moved up or down the tree.
         Process (simplified): A node is moved up and its parent becomes one of its children. If there weas a child in that spot it is re-inserted into the new subtree.
-        You would to it to keep a tree 'balaanced' - ie decrease the maximum height of the tree to re-optimize binary searches.
+        You would do it to keep a tree 'balanced' - ie decrease the maximum height of the tree to re-optimize binary searches.
       </answer>
     </question>
   </category>
@@ -321,7 +321,7 @@
         Describe basic deisgn principles for proper Mongo schema design.
       </text>
       <answer>
-        Denormalize the data as much as possible to avoid querying for multipel documents.
+        Denormalize the data as much as possible to avoid querying for multiple documents.
       </answer>
     </question>
     <question>
@@ -329,7 +329,7 @@
         How do you rollback a transaction in Mongo?
       </text>
       <answer>
-        Trick question, you can't because there are no formal transactions.
+        Trick question; you can't because there are no formal transactions.
       </answer>
     </question>
     <question>
